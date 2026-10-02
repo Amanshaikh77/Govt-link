@@ -1,6 +1,6 @@
 const linksData = [
     // --- 1. IDENTITY & DOCUMENTS ---
-    { name: "Aadhaar Enrolment", desc: "Locate enrolment center and book an appointment.", type: "india", cat: "identity", logo: "aadhaar", url: "https://appointments.uidai.gov.in/" },
+    { name: "Aadhaar Enrolment", desc: "Locate enrolment center and book an appointment.", type: "india", cat: "identity", logo: "aadhaar", url: "https://myaadhaar.uidai.gov.in/book-appointment" },
     { name: "Aadhaar Update", desc: "Online address update and demographic corrections.", type: "india", cat: "identity", logo: "aadhaar", url: "https://myaadhaar.uidai.gov.in/" },
     { name: "Aadhaar Download", desc: "Direct portal to download electronic Aadhaar (e-Aadhaar).", type: "india", cat: "identity", logo: "aadhaar", url: "https://myaadhaar.uidai.gov.in/gen-ae" },
     { name: "Aadhaar PVC Card", desc: "Order wallet-sized durable PVC Aadhaar card.", type: "india", cat: "identity", logo: "aadhaar", url: "https://myaadhaar.uidai.gov.in/gen-pvc" },
