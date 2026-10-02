@@ -1,0 +1,196 @@
+const linksData = [
+    // --- 1. IDENTITY & DOCUMENTS ---
+    { name: "Aadhaar Enrolment", desc: "Locate enrolment center and book an appointment.", type: "india", cat: "identity", url: "https://appointments.uidai.gov.in/" },
+    { name: "Aadhaar Update", desc: "Online address update and demographic corrections.", type: "india", cat: "identity", url: "https://myaadhaar.uidai.gov.in/" },
+    { name: "Aadhaar Download", desc: "Direct portal to download electronic Aadhaar (e-Aadhaar).", type: "india", cat: "identity", url: "https://myaadhaar.uidai.gov.in/gen-ae" },
+    { name: "Aadhaar PVC Card", desc: "Order wallet-sized durable PVC Aadhaar card.", type: "india", cat: "identity", url: "https://myaadhaar.uidai.gov.in/gen-pvc" },
+    { name: "Aadhaar Status", desc: "Check enrolment or demographic update status.", type: "india", cat: "identity", url: "https://myaadhaar.uidai.gov.in/CheckAadhaarStatus" },
+    { name: "PAN Apply", desc: "Online Application for New PAN Card via Protean (NSDL).", type: "india", cat: "identity", url: "https://onlineservices.proteantech.in/paam/endUserRegisterContact.html" },
+    { name: "PAN Correction", desc: "Correction or changes in existing PAN card details.", type: "india", cat: "identity", url: "https://onlineservices.proteantech.in/paam/endUserRegisterContact.html" },
+    { name: "PAN Status", desc: "Track PAN card application or correction status.", type: "india", cat: "identity", url: "https://tin.tin.proteantech.in/pan2" },
+    { name: "PAN Verification", desc: "Verify your PAN details online on Income Tax portal.", type: "india", cat: "identity", url: "https://eportal.incometax.gov.in/iec/foservices/#/pre-login/verifyYourPAN" },
+    { name: "Instant e-PAN", desc: "Get free instant digital PAN within minutes via Aadhaar.", type: "india", cat: "identity", url: "https://eportal.incometax.gov.in/iec/foservices/#/pre-login/instant-e-pan" },
+    { name: "PAN-Aadhaar Linking", desc: "Link PAN card with Aadhaar number or verify link status.", type: "india", cat: "identity", url: "https://eportal.incometax.gov.in/iec/foservices/#/pre-login/bl-link-aadhaar" },
+    { name: "DigiLocker Registration", desc: "Create an official cloud storage account for digital docs.", type: "india", cat: "identity", url: "https://www.digilocker.gov.in/" },
+    { name: "DigiLocker Documents", desc: "Access and fetch digital certificates and IDs.", type: "india", cat: "identity", url: "https://www.digilocker.gov.in/" },
+    { name: "Digital Document Verification", desc: "Verify authenticity of issued digital certificates.", type: "india", cat: "identity", url: "https://verify.digitallocker.gov.in/" },
+    { name: "Voter Registration", desc: "Apply online for new voter registration (Form 6).", type: "india", cat: "identity", url: "https://voters.eci.gov.in/" },
+    { name: "Voter Correction", desc: "Shift or correct details in Electoral Roll (Form 8).", type: "india", cat: "identity", url: "https://voters.eci.gov.in/" },
+    { name: "Voter Deletion", desc: "Objection or deletion of voter name (Form 7).", type: "india", cat: "identity", url: "https://voters.eci.gov.in/" },
+    { name: "e-EPIC Download", desc: "Download official electronic Voter ID card PDF.", type: "india", cat: "identity", url: "https://voters.eci.gov.in/" },
+    { name: "Passport Apply", desc: "Official Passport Seva portal online registration.", type: "india", cat: "identity", url: "https://www.passportindia.gov.in/" },
+    { name: "Passport Re-issue", desc: "Re-issue of expired, exhausted, or damaged passport.", type: "india", cat: "identity", url: "https://www.passportindia.gov.in/" },
+    { name: "Tatkaal Passport", desc: "Apply for urgent issuance of passport under Tatkaal.", type: "india", cat: "identity", url: "https://www.passportindia.gov.in/" },
+    { name: "Passport Appointment", desc: "Check PSK/POPSK appointment availability slots.", type: "india", cat: "identity", url: "https://www.passportindia.gov.in/AppOnlineProject/online/chkAppointment" },
+    { name: "Passport Status", desc: "Track application status of your passport file.", type: "india", cat: "identity", url: "https://www.passportindia.gov.in/AppOnlineProject/statusTracker/trackStatusInpNew" },
+    { name: "Police Clearance Certificate", desc: "Apply online for PCC (Passport Seva).", type: "india", cat: "identity", url: "https://www.passportindia.gov.in/" },
+
+    // --- 2. TRANSPORT & TRAFFIC ---
+    { name: "Learner Licence", desc: "Apply for new Learner's Licence via Parivahan Sarathi.", type: "india", cat: "transport", url: "https://sarathi.parivahan.gov.in/sarathiservice/stateSelection.do" },
+    { name: "Driving Licence Apply", desc: "Apply for permanent Driving Licence after LL.", type: "india", cat: "transport", url: "https://sarathi.parivahan.gov.in/sarathiservice/stateSelection.do" },
+    { name: "Driving Licence Renewal", desc: "Renew your expired or soon-to-expire driving licence.", type: "india", cat: "transport", url: "https://sarathi.parivahan.gov.in/sarathiservice/stateSelection.do" },
+    { name: "DL Duplicate", desc: "Apply for duplicate DL in case of loss or theft.", type: "india", cat: "transport", url: "https://sarathi.parivahan.gov.in/sarathiservice/stateSelection.do" },
+    { name: "DL Address Change", desc: "Change of address in Driving Licence records.", type: "india", cat: "transport", url: "https://sarathi.parivahan.gov.in/sarathiservice/stateSelection.do" },
+    { name: "Vehicle Registration", desc: "Vahan citizen portal for vehicle registration services.", type: "india", cat: "transport", url: "https://vahan.parivahan.gov.in/vahanservice/" },
+    { name: "RC Download", desc: "Download digital RC or view details via Parivahan.", type: "india", cat: "transport", url: "https://vahan.parivahan.gov.in/vahanservice/" },
+    { name: "RC Transfer", desc: "Online application for vehicle transfer of ownership.", type: "india", cat: "transport", url: "https://vahan.parivahan.gov.in/vahanservice/" },
+    { name: "Vehicle Ownership Transfer", desc: "Buyer and seller verification for vehicle ownership transfer.", type: "india", cat: "transport", url: "https://vahan.parivahan.gov.in/vahanservice/" },
+    { name: "Vehicle Fitness", desc: "Apply for vehicle fitness certificate or renewal.", type: "india", cat: "transport", url: "https://vahan.parivahan.gov.in/vahanservice/" },
+    { name: "Vehicle Permit", desc: "Commercial vehicle national & state permit services.", type: "india", cat: "transport", url: "https://vahan.parivahan.gov.in/vahanservice/" },
+    { name: "Road Tax", desc: "Pay road tax / motor vehicle tax online.", type: "india", cat: "transport", url: "https://vahan.parivahan.gov.in/vahanservice/" },
+    { name: "e-Challan Check", desc: "Check pending traffic challan status by vehicle/DL number.", type: "india", cat: "transport", url: "https://echallan.parivahan.gov.in/" },
+    { name: "e-Challan Payment", desc: "Online payment gateway for traffic e-Challan.", type: "india", cat: "transport", url: "https://echallan.parivahan.gov.in/" },
+    { name: "Challan Status", desc: "Track transaction and receipt status of paid challan.", type: "india", cat: "transport", url: "https://echallan.parivahan.gov.in/" },
+    { name: "PUC Certificate", desc: "Check or download Pollution Under Control certificate.", type: "india", cat: "transport", url: "https://puc.parivahan.gov.in/puc/" },
+    { name: "Fancy Number Booking", desc: "Auction & booking of choice / VIP vehicle numbers.", type: "india", cat: "transport", url: "https://fancy.parivahan.gov.in/fancy/faces/public/login.xhtml" },
+    { name: "National Permit Services", desc: "Apply for All India Tourist Vehicle / National Permits.", type: "india", cat: "transport", url: "https://vahan.parivahan.gov.in/npermit/" },
+
+    // --- 3. INCOME, TAX & EMPLOYMENT ---
+    { name: "Income Tax e-Filing", desc: "Central official Income Tax department e-filing portal.", type: "india", cat: "tax", url: "https://www.incometax.gov.in/iec/foportal/" },
+    { name: "ITR Filing", desc: "File your annual Income Tax Return online.", type: "india", cat: "tax", url: "https://eportal.incometax.gov.in/iec/foservices/#/login" },
+    { name: "ITR e-Verification", desc: "e-Verify filed income tax returns via OTP / NetBanking.", type: "india", cat: "tax", url: "https://eportal.incometax.gov.in/iec/foservices/#/pre-login/e-verify-return-ho" },
+    { name: "Form 26AS", desc: "View Annual Tax Credit Statement via TRACES.", type: "india", cat: "tax", url: "https://eportal.incometax.gov.in/" },
+    { name: "AIS / TIS", desc: "Annual Information Statement & Taxpayer Info Summary.", type: "india", cat: "tax", url: "https://eportal.incometax.gov.in/" },
+    { name: "EPFO UAN", desc: "UAN activation and member interface portal for employees.", type: "india", cat: "tax", url: "https://unifiedportal-mem.epfindia.gov.in/memberinterface/" },
+    { name: "EPF Passbook", desc: "Check and download your PF passbook & pension balance.", type: "india", cat: "tax", url: "https://passbook.epfindia.gov.in/MemberPassBook/Login" },
+    { name: "PF Claim", desc: "Apply online for EPF withdrawal, advance or transfer.", type: "india", cat: "tax", url: "https://unifiedportal-mem.epfindia.gov.in/memberinterface/" },
+    { name: "PF Transfer", desc: "Online transfer of PF balance from previous company.", type: "india", cat: "tax", url: "https://unifiedportal-mem.epfindia.gov.in/memberinterface/" },
+    { name: "Pension Claim", desc: "Apply for EPS scheme pension certificate / withdrawal.", type: "india", cat: "tax", url: "https://unifiedportal-mem.epfindia.gov.in/memberinterface/" },
+    { name: "e-Shram Registration", desc: "Unorganised workers self-registration on e-Shram portal.", type: "india", cat: "tax", url: "https://eshram.gov.in/" },
+    { name: "e-Shram Card", desc: "Download e-Shram UAN card or update details.", type: "india", cat: "tax", url: "https://eshram.gov.in/" },
+    { name: "Udyam Registration", desc: "Free MSME / Small Business registration portal.", type: "india", cat: "tax", url: "https://udyamregistration.gov.in/" },
+    { name: "Udyam Certificate", desc: "Print or download official Udyam Registration Certificate.", type: "india", cat: "tax", url: "https://udyamregistration.gov.in/Udyam_Login.aspx" },
+    { name: "Udyam Verification", desc: "Verify Udyam / MSME Registration details online.", type: "india", cat: "tax", url: "https://udyamregistration.gov.in/Udyam_Verify.aspx" },
+    { name: "National Career Service", desc: "Find government and private jobs, career counseling.", type: "india", cat: "tax", url: "https://www.ncs.gov.in/" },
+    { name: "Government Job Search", desc: "Explore central government jobs on official NCS portal.", type: "india", cat: "tax", url: "https://www.ncs.gov.in/" },
+    { name: "Skill India Registration", desc: "Skill development schemes & certification courses.", type: "india", cat: "tax", url: "https://www.skillindiadigital.gov.in/" },
+    { name: "Apprenticeship Portal", desc: "National Apprenticeship Promotion Scheme (NAPS) registration.", type: "india", cat: "tax", url: "https://www.apprenticeshipindia.gov.in/" },
+    { name: "ESIC Services", desc: "Employees State Insurance Corporation member services.", type: "india", cat: "tax", url: "https://www.esic.gov.in/" },
+    { name: "Labour Services", desc: "Ministry of Labour and Employment centralized portal.", type: "india", cat: "tax", url: "https://labour.gov.in/" },
+
+    // --- 4. EDUCATION, AGRICULTURE & WELFARE ---
+    { name: "National Scholarship Portal", desc: "Unified portal for Central & UGC scholarship schemes.", type: "india", cat: "welfare", url: "https://scholarships.gov.in/" },
+    { name: "Scholarship Application", desc: "Apply for fresh national / central scholarships.", type: "india", cat: "welfare", url: "https://scholarships.gov.in/" },
+    { name: "Scholarship Renewal", desc: "Renew your ongoing academic scholarships on NSP.", type: "india", cat: "welfare", url: "https://scholarships.gov.in/" },
+    { name: "Scholarship Status", desc: "Track application status and disbursement on NSP.", type: "india", cat: "welfare", url: "https://scholarships.gov.in/" },
+    { name: "PM-KISAN Registration", desc: "New farmer registration for 6000 INR annual benefit.", type: "india", cat: "welfare", url: "https://pmkisan.gov.in/RegistrationFormNew.aspx" },
+    { name: "PM-KISAN e-KYC", desc: "Mandatory Aadhaar OTP eKYC for PM-Kisan beneficiaries.", type: "india", cat: "welfare", url: "https://pmkisan.gov.in/aadharekyc.aspx" },
+    { name: "PM-KISAN Beneficiary Status", desc: "Check installment status and bank account linking.", type: "india", cat: "welfare", url: "https://pmkisan.gov.in/BeneficiaryStatus_New.aspx" },
+    { name: "PM Fasal Bima Yojana", desc: "Pradhan Mantri crop insurance application portal.", type: "india", cat: "welfare", url: "https://pmfby.gov.in/" },
+    { name: "Crop Insurance Status", desc: "Check your crop insurance application and claim status.", type: "india", cat: "welfare", url: "https://pmfby.gov.in/" },
+    { name: "Kisan Credit Card Information", desc: "Guidelines and loan details for KCC farmers.", type: "india", cat: "welfare", url: "https://pmkisan.gov.in/" },
+    { name: "PMAY Scheme Services", desc: "Pradhan Mantri Awas Yojana (Urban & Gramin) portal.", type: "india", cat: "welfare", url: "https://pmaymis.gov.in/" },
+    { name: "Ayushman Bharat / PM-JAY", desc: "Check eligibility and generate Ayushman Card (5 Lakh Health cover).", type: "india", cat: "welfare", url: "https://beneficiary.nha.gov.in/" },
+    { name: "eSanjeevani Telemedicine", desc: "National doctor-to-patient teleconsultation portal.", type: "india", cat: "welfare", url: "https://esanjeevani.mohfw.gov.in/" },
+    { name: "Pension Services", desc: "National Pension System (NPS) and Central Pensioners portal.", type: "india", cat: "welfare", url: "https://enps.nsdl.com/" },
+    { name: "myScheme Eligibility", desc: "Discover all central and state schemes you qualify for.", type: "india", cat: "welfare", url: "https://www.myscheme.gov.in/" },
+    { name: "Government Scheme Search", desc: "Search across 1000+ government programs on myScheme.", type: "india", cat: "welfare", url: "https://www.myscheme.gov.in/find-scheme" },
+    { name: "Ration Card Services", desc: "National Food Security Portal (NFSA) centralized dashboard.", type: "india", cat: "welfare", url: "https://nfsa.gov.in/" },
+    { name: "Gas Connection Scheme", desc: "Apply for new LPG gas connection across major providers.", type: "india", cat: "welfare", url: "https://www.pmuy.gov.in/" },
+    { name: "Ujjwala Scheme", desc: "PM Ujjwala Yojana 2.0 free gas cylinder scheme apply.", type: "india", cat: "welfare", url: "https://www.pmuy.gov.in/ujjwala2.html" },
+    { name: "Consumer Grievance", desc: "File consumer complaints against fraud or bad services.", type: "india", cat: "welfare", url: "https://consumerhelpline.gov.in/" },
+    { name: "National Consumer Helpline", desc: "Helpline info and docket status for consumer protection.", type: "india", cat: "welfare", url: "https://consumerhelpline.gov.in/" },
+    { name: "CPGRAMS Grievance", desc: "Centralized Public Grievance Redress and Monitoring System.", type: "india", cat: "welfare", url: "https://pgportal.gov.in/" },
+    { name: "RTI Online", desc: "File Right to Information (RTI) application or first appeal.", type: "india", cat: "welfare", url: "https://rtionline.gov.in/" },
+    { name: "Court / e-Courts Services", desc: "Check case status, court orders and cause lists across India.", type: "india", cat: "welfare", url: "https://services.ecourts.gov.in/" },
+    { name: "Birth & Death Registration", desc: "Civil Registration System (CRS) for birth & death certificates.", type: "india", cat: "welfare", url: "https://crsorgi.gov.in/" },
+
+    // --- 5. BIHAR GOVERNMENT SERVICES ---
+    { name: "Income Certificate (RTPS)", desc: "Aay Praman Patra apply and download via RTPS Bihar.", type: "bihar", cat: "bihar", url: "https://serviceonline.bihar.gov.in/" },
+    { name: "Caste Certificate (RTPS)", desc: "Jati Praman Patra apply via RTPS Bihar.", type: "bihar", cat: "bihar", url: "https://serviceonline.bihar.gov.in/" },
+    { name: "Residence Certificate", desc: "Niwas / Aawasiya Praman Patra application on RTPS Bihar.", type: "bihar", cat: "bihar", url: "https://serviceonline.bihar.gov.in/" },
+    { name: "EWS Certificate", desc: "Economically Weaker Section certificate for Bihar residents.", type: "bihar", cat: "bihar", url: "https://serviceonline.bihar.gov.in/" },
+    { name: "NCL Certificate", desc: "Non-Creamy Layer (OBC) certificate application via RTPS.", type: "bihar", cat: "bihar", url: "https://serviceonline.bihar.gov.in/" },
+    { name: "BC/EBC Certificate", desc: "Backward Class certificate for Bihar state quotas.", type: "bihar", cat: "bihar", url: "https://serviceonline.bihar.gov.in/" },
+    { name: "Birth Certificate Bihar", desc: "Janam Praman Patra application via Bihar RTPS/CRS portal.", type: "bihar", cat: "bihar", url: "https://serviceonline.bihar.gov.in/" },
+    { name: "Death Certificate Bihar", desc: "Mrityu Praman Patra registration and download.", type: "bihar", cat: "bihar", url: "https://serviceonline.bihar.gov.in/" },
+    { name: "Character Certificate", desc: "Aacharan Praman Patra (Police Character Certificate) on RTPS.", type: "bihar", cat: "bihar", url: "https://serviceonline.bihar.gov.in/" },
+    { name: "RTPS Application Status", desc: "Track application status of your RTPS Bihar certificate.", type: "bihar", cat: "bihar", url: "https://serviceonline.bihar.gov.in/viewApplicationStatus.do" },
+    { name: "Certificate Verification", desc: "Verify and download issued RTPS certificate PDF directly.", type: "bihar", cat: "bihar", url: "https://serviceonline.bihar.gov.in/downloadCertificate.do" },
+    { name: "Bihar Land Records", desc: "Revenue & Land Reforms Department (DLRS) official portal.", type: "bihar", cat: "bihar", url: "http://biharbhumi.bihar.gov.in/Biharbhumi/" },
+    { name: "Jamabandi Bihar", desc: "View Jamabandi panji / online land records status.", type: "bihar", cat: "bihar", url: "http://biharbhumi.bihar.gov.in/Biharbhumi/ViewJamabandi.aspx" },
+    { name: "Online Mutation", desc: "Dakhil Kharij online registration and application.", type: "bihar", cat: "bihar", url: "http://biharbhumi.bihar.gov.in/Biharbhumi/" },
+    { name: "Mutation Status", desc: "Check Dakhil Kharij mutation case status online.", type: "bihar", cat: "bihar", url: "http://biharbhumi.bihar.gov.in/Biharbhumi/MutationStatusNew.aspx" },
+    { name: "Land Revenue / Lagaan", desc: "Pay land tax (Bhumi Lagaan) online in Bihar.", type: "bihar", cat: "bihar", url: "http://biharbhumi.bihar.gov.in/Biharbhumi/" },
+    { name: "Land Map / Naksha", desc: "Check and order certified revenue village and plot map.", type: "bihar", cat: "bihar", url: "https://dlrs.bihar.gov.in/" },
+    { name: "Bihar Driving Licence", desc: "Parivahan Sarathi driving services for Bihar RTOs.", type: "bihar", cat: "bihar", url: "https://sarathi.parivahan.gov.in/sarathiservice/stateSelection.do" },
+    { name: "Bihar Vehicle Registration", desc: "Parivahan Vahan citizen services for Bihar vehicles.", type: "bihar", cat: "bihar", url: "https://vahan.parivahan.gov.in/vahanservice/" },
+    { name: "Bihar Road Tax", desc: "Pay commercial and personal vehicle road tax in Bihar.", type: "bihar", cat: "bihar", url: "https://vahan.parivahan.gov.in/vahanservice/" },
+    { name: "Bihar Transport Permit", desc: "State and regional permits for Bihar transport vehicles.", type: "bihar", cat: "bihar", url: "https://vahan.parivahan.gov.in/vahanservice/" },
+    { name: "Bihar Police Services", desc: "Online FIR, complaint registration and verification.", type: "bihar", cat: "bihar", url: "https://police.bihar.gov.in/" },
+    { name: "Bihar Scholarship (PMS)", desc: "Post Matric Scholarship portal (PMS Online) Bihar.", type: "bihar", cat: "bihar", url: https://pmsonline.bih.nic.in/" },
+    { name: "Bihar Social Security Pension", desc: "SSPDS portal for Old Age, Widow and Disability pensions.", type: "bihar", cat: "bihar", url: "https://sspmis.in/" },
+    { name: "Bihar Ration Card", desc: "EPDS Bihar portal for new ration card apply and beneficiary list.", type: "bihar", cat: "bihar", url: "http://epds.bihar.gov.in/" }
+];
+
+let currentFilter = 'all';
+const grid = document.getElementById('linksGrid');
+const searchInput = document.getElementById('searchInput');
+const countInfo = document.getElementById('countInfo');
+const redirectModal = document.getElementById('redirectModal');
+const targetPortalUrl = document.getElementById('targetPortalUrl');
+
+function triggerRedirect(url) {
+    targetPortalUrl.innerText = url;
+    redirectModal.style.display = 'flex';
+    setTimeout(() => {
+        window.open(url, '_blank');
+        redirectModal.style.display = 'none';
+    }, 1400);
+}
+
+function renderCards() {
+    const query = searchInput.value.toLowerCase().trim();
+    grid.innerHTML = '';
+
+    const filteredData = linksData.filter(item => {
+        const matchesFilter = (currentFilter === 'all') || 
+                             (currentFilter === 'bihar' && item.type === 'bihar') ||
+                             (item.cat === currentFilter);
+
+        const matchesSearch = item.name.toLowerCase().includes(query) || 
+                              item.desc.toLowerCase().includes(query);
+        return matchesFilter && matchesSearch;
+    });
+
+    countInfo.innerText = `Showing ${filteredData.length} available service${filteredData.length === 1 ? '' : 's'}`;
+
+    if (filteredData.length === 0) {
+        grid.innerHTML = `
+            <div class="not-found">
+                <i class="fa-solid fa-triangle-exclamation" style="font-size: 2.5rem; color: #cbd5e1; margin-bottom: 1rem;"></i>
+                <h3>Koi service nahi mili!</h3>
+                <p>Kripya dusra keyword likhein ya filter badlein.</p>
+            </div>`;
+        return;
+    }
+
+    filteredData.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <div>
+                <div class="tag-group">
+                    <span class="tag ${item.type}">${item.type === 'bihar' ? 'Bihar' : 'India'}</span>
+                    <span class="tag category">${item.cat}</span>
+                </div>
+                <h3>${item.name}</h3>
+                <p>${item.desc}</p>
+            </div>
+            <button class="card-btn" onclick="triggerRedirect('${item.url}')">
+                Go to Portal <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </button>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+function filterData(filterType, element) {
+    currentFilter = filterType;
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    element.classList.add('active');
+    renderCards();
+}
+
+searchInput.addEventListener('input', renderCards);
+renderCards();

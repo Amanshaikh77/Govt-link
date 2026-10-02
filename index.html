@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormReady India - Top Government Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --bihar-accent: #ea580c;
+            --india-accent: #059669;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: white;
+            padding: 2.2rem 1rem 1.8rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+        }
+
+        header p {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            max-width: 650px;
+            margin: 0 auto 1.3rem;
+        }
+
+        .search-container {
+            max-width: 580px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 0.85rem 1.2rem 0.85rem 3rem;
+            border-radius: 50px;
+            border: 2px solid transparent;
+            outline: none;
+            font-size: 0.95rem;
+            background: #ffffff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.18);
+        }
+
+        .search-container input:focus {
+            border-color: var(--primary-light);
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.1rem;
+            border: 1px solid #cbd5e1;
+            outline: none;
+            border-radius: 20px;
+            background: #ffffff;
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .count-info {
+            text-align: right;
+            font-size: 0.82rem;
+            color: #64748b;
+            margin-bottom: 0.9rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.2rem;
+        }
+
+        /* Responsive Card With Transparent Background Watermark */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.09);
+            border-color: #cbd5e1;
+        }
+
+        /* Semi-transparent Background Watermark */
+        .card::before {
+            content: '';
+            position: absolute;
+            right: -10px;
+            bottom: -10px;
+            width: 125px;
+            height: 125px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: -1;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .card:hover::before {
+            opacity: 0.13;
+            transform: scale(1.08);
+        }
+
+        /* Specific Watermark Logos */
+        .card[data-bg="aadhaar"]::before {
+            background-image: url('https://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Aadhaar_Logo.svg/512px-Aadhaar_Logo.svg.png');
+        }
+
+        .card[data-bg="pan"]::before {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/512px-Emblem_of_India.svg.png');
+        }
+
+        .card[data-bg="voter"]::before {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Election_Commission_of_India_Logo.svg/512px-Election_Commission_of_India_Logo.svg.png');
+        }
+
+        .card[data-bg="passport"]::before {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/512px-Emblem_of_India.svg.png');
+        }
+
+        .card[data-bg="digilocker"]::before {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/DigiLocker_logo.png/512px-DigiLocker_logo.png');
+        }
+
+        .card[data-bg="bihar"]::before {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Seal_of_Bihar.svg/512px-Seal_of_Bihar.svg.png');
+        }
+
+        .card[data-bg="transport"]::before {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/512px-Emblem_of_India.svg.png');
+        }
+
+        .card[data-bg="tax"]::before {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/512px-Emblem_of_India.svg.png');
+        }
+
+        .card[data-bg="welfare"]::before {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/512px-Emblem_of_India.svg.png');
+        }
+
+        .tag-group {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .tag.bihar {
+            background: #ffedd5;
+            color: var(--bihar-accent);
+        }
+
+        .tag.india {
+            background: #dcfce7;
+            color: var(--india-accent);
+        }
+
+        .tag.category {
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .card h3 {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin-bottom: 0.35rem;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+            font-weight: 400;
+            flex-grow: 1;
+        }
+
+        .card-btn {
+            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: #f8fafc;
+            color: var(--primary);
+            border: 1px solid #e2e8f0;
+            font-weight: 600;
+            font-size: 0.85rem;
+            padding: 0.55rem 0.9rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .card-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Redirect Verified Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-icon {
+            width: 60px;
+            height: 60px;
+            background: #ecfdf5;
+            color: #059669;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 1rem;
+            border: 2px solid #a7f3d0;
+        }
+
+        .portal-url-box {
+            background: #f1f5f9;
+            padding: 0.5rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            color: #0284c7;
+            font-weight: 500;
+            word-break: break-all;
+            margin: 1rem 0;
+            border: 1px dashed #cbd5e1;
+        }
+
+        .spinner {
+            width: 26px;
+            height: 26px;
+            border: 3px solid #e2e8f0;
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 0.82rem;
+            margin-top: 2.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><i class="fa-solid fa-layer-group"></i> FormReady India</h1>
+        <p>Bihar & Central Government Official Portals, Documents, Transport, Tax & Welfare Direct Links</p>
+        
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Search any service (e.g. Aadhaar, DL, RTPS, PAN, ITR, Ration)...">
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterData('all', this)">All Services</button>
+            <button class="filter-btn" onclick="filterData('bihar', this)">Bihar Govt</button>
+            <button class="filter-btn" onclick="filterData('identity', this)">Identity & Documents</button>
+            <button class="filter-btn" onclick="filterData('transport', this)">Transport & Traffic</button>
+            <button class="filter-btn" onclick="filterData('tax', this)">Income, Tax & Employment</button>
+            <button class="filter-btn" onclick="filterData('welfare', this)">Education & Welfare</button>
+        </div>
+
+        <div class="count-info" id="countInfo">Showing services...</div>
+        <div class="grid" id="linksGrid"></div>
+    </div>
+
+    <!-- Verified Redirect Modal -->
+    <div class="modal-overlay" id="redirectModal">
+        <div class="modal-content">
+            <div class="modal-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 0.4rem;">Redirecting to Verified Site</h3>
+            <p style="font-size: 0.88rem; color: #475569;">Aapko official verified government portal par safely redirect kiya ja raha hai...</p>
+            <div class="portal-url-box" id="targetPortalUrl">https://...</div>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 FormReady India. Direct access to authorized Indian Government platforms.</p>
+    </footer>
+
+    <!-- Load links from links/data.js -->
+    <script src="links/data.js"></script>
+
+    <script>
+        let currentFilter = 'all';
+        const grid = document.getElementById('linksGrid');
+        const searchInput = document.getElementById('searchInput');
+        const countInfo = document.getElementById('countInfo');
+        const redirectModal = document.getElementById('redirectModal');
+        const targetPortalUrl = document.getElementById('targetPortalUrl');
+
+        function triggerRedirect(url) {
+            targetPortalUrl.innerText = url;
+            redirectModal.style.display = 'flex';
+            setTimeout(() => {
+                window.open(url, '_blank');
+                redirectModal.style.display = 'none';
+            }, 1300);
+        }
+
+        function renderCards() {
+            if (typeof linksData === 'undefined') {
+                grid.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding:2rem; color:red;">Error: links/data.js load nahi ho paya!</div>';
+                return;
+            }
+
+            const query = searchInput.value.toLowerCase().trim();
+            grid.innerHTML = '';
+
+            const filteredData = linksData.filter(item => {
+                const matchesFilter = (currentFilter === 'all') || 
+                                     (currentFilter === 'bihar' && item.type === 'bihar') ||
+                                     (item.cat === currentFilter);
+
+                const matchesSearch = item.name.toLowerCase().includes(query) || 
+                                      item.desc.toLowerCase().includes(query);
+                return matchesFilter && matchesSearch;
+            });
+
+            countInfo.innerText = `Showing ${filteredData.length} available service${filteredData.length === 1 ? '' : 's'}`;
+
+            if (filteredData.length === 0) {
+                grid.innerHTML = `
+                    <div style="text-align: center; grid-column: 1 / -1; padding: 3rem 1rem; color: #64748b;">
+                        <i class="fa-solid fa-triangle-exclamation" style="font-size: 2.2rem; color: #cbd5e1; margin-bottom: 0.8rem;"></i>
+                        <h3>Koi service nahi mili!</h3>
+                        <p>Kripya dusra keyword likhein ya category badlein.</p>
+                    </div>`;
+                return;
+            }
+
+            filteredData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.setAttribute('data-bg', item.logo || item.cat || 'india');
+                card.innerHTML = `
+                    <div>
+                        <div class="tag-group">
+                            <span class="tag ${item.type}">${item.type === 'bihar' ? 'Bihar' : 'India'}</span>
+                            <span class="tag category">${item.cat}</span>
+                        </div>
+                        <h3>${item.name}</h3>
+                        <p>${item.desc}</p>
+                    </div>
+                    <button class="card-btn" onclick="triggerRedirect('${item.url}')">
+                        Go to Portal <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterData(filterType, element) {
+            currentFilter = filterType;
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            renderCards();
+        }
+
+        searchInput.addEventListener('input', renderCards);
+        window.onload = renderCards;
+    </script>
+</body>
+</html>
