@@ -85,7 +85,7 @@ const linksData = [
     { name: "Pension Services", desc: "National Pension System (NPS) and Central Pensioners portal.", type: "india", cat: "welfare", logo: "welfare", url: "https://enps.nsdl.com/" },
     { name: "myScheme Eligibility", desc: "Discover all central and state schemes you qualify for.", type: "india", cat: "welfare", logo: "welfare", url: "https://www.myscheme.gov.in/" },
     { name: "Government Scheme Search", desc: "Search across 1000+ government programs on myScheme.", type: "india", cat: "welfare", logo: "welfare", url: "https://www.myscheme.gov.in/find-scheme" },
-    { name: "Ration Card Services", desc: "National Food Security Portal (NFSA) centralized dashboard.", type: "india", cat: "welfare", logo: "welfare", url: "https://nfsa.gov.in/" },
+    { name: "Ration Card Services", desc: "National Food Security Portal (NFSA) all states ration card portal.", type: "india", cat: "welfare", logo: "welfare", url: "https://nfsa.gov.in/portal/ration_card_state_portals_aa" },
     { name: "Gas Connection Scheme", desc: "Apply for new LPG gas connection across major providers.", type: "india", cat: "welfare", logo: "welfare", url: "https://www.pmuy.gov.in/" },
     { name: "Ujjwala Scheme", desc: "PM Ujjwala Yojana 2.0 free gas cylinder scheme apply.", type: "india", cat: "welfare", logo: "welfare", url: "https://www.pmuy.gov.in/ujjwala2.html" },
     { name: "Consumer Grievance", desc: "File consumer complaints against fraud or bad services.", type: "india", cat: "welfare", logo: "welfare", url: "https://consumerhelpline.gov.in/" },
